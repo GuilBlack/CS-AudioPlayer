@@ -1,0 +1,29 @@
+﻿@model AudioPlayer.Models.Playlist
+
+@{
+    ViewData["Title"] = "Create Playlist";
+}
+
+
+<h4 class="">Playlist</h4>
+<hr class="border-light" />
+<div class="row">
+    <div class="col-md-4">
+        <form class="" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlaylistName" class="control-label"></label>
+                <input asp-for="PlaylistName" class="form-control" />
+                <span asp-validation-for="PlaylistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

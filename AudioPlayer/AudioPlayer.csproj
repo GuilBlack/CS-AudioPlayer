@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AudioPlayer-C6EBBE14-C0E0-440D-9727-74FB9CBE323B</UserSecretsId>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210131125452_InitialPlaylistMigration.cs" />
+    <Compile Remove="Data\Migrations\20210131125452_InitialPlaylistMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210131131742_InitialPlaylistMigration.cs" />
+    <Compile Remove="Data\Migrations\20210131131742_InitialPlaylistMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210131131906_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210131131906_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210201193722_MusicAdded.cs" />
+    <Compile Remove="Migrations\20210201193722_MusicAdded.Designer.cs" />
+    <Compile Remove="Migrations\20210202161915_AddedMusicPath.cs" />
+    <Compile Remove="Migrations\20210202161915_AddedMusicPath.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>

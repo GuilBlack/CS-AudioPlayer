@@ -1,0 +1,37 @@
+﻿@model List<AudioPlayer.Models.Playlist>
+@{
+    ViewData["Title"] = "Playlist";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-dark border-light">
+                <div class="card-header border-light">
+                    <h3 class="text-light">Playlists</h3>
+                </div>
+                <div class="card-body">
+                    <a asp-controller="Playlist" asp-action="Create" class="btn btn-primary btn-block" style="margin-bottom: 15px">Create New Playlist</a>
+                    @if (Model.Count > 0)
+                    {
+                        @foreach(Playlist playlist in Model)
+                        {
+                            <form asp-action="Delete" asp-route-id="@playlist.Id">
+                                <div class="card card-body bg-dark border-light" style="margin-bottom: 10px">
+                                    <h3>
+                                        <a class="text-light" asp-controller="Playlist" asp-action="Details" asp-route-id="@playlist.Id">@playlist.PlaylistName</a>
+                                        <a asp-controller="Playlist" asp-action="Edit" asp-route-id="@playlist.Id"><span class="material-icons" style="font-size: 25px; margin-top: 5px; float: right;">create</span></a>
+                                        <button type="submit" class="material-icons inline-delete-forever-button" style="font-size: 25px; float: right; color: red; margin-top: 5px;">delete_forever</button>
+                                    </h3>
+                                </div>
+                            </form>
+                        }
+                    } else
+                    {
+                        <p>No Playlists Found</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

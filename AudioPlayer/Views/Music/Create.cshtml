@@ -1,0 +1,43 @@
+﻿@model AudioPlayer.Models.Music
+
+@{
+    ViewData["Title"] = "Add Music";
+    Guid playlistId = ViewBag.playlistId;
+}
+<h4 class="">Music</h4>
+<hr class="border-light" />
+<div class="row">
+    <div class="col-md-4">
+        <form class="" asp-action="Create" asp-route-playlistId="@playlistId" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MusicName" class="control-label"></label>
+                <input asp-for="MusicName" class="form-control" />
+                <span asp-validation-for="MusicName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artist" class="control-label"></label>
+                <input asp-for="Artist" class="form-control" />
+                <span asp-validation-for="Artist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Album" class="control-label"></label>
+                <input asp-for="Album" class="form-control" />
+                <span asp-validation-for="Album" class="text-danger"></span>
+            </div>
+            <div>
+                <label class="control-label">Music File</label>
+                <input type="file" name="musicFile" /><br />
+                <span class="text-danger">@(ViewBag.noFile)</span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-playlistId="@playlistId">Back to List</a>
+</div>
