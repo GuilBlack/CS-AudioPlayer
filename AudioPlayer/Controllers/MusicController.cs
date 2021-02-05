@@ -124,11 +124,11 @@ namespace AudioPlayer.Controllers
                 musicToSave = _musicRepo.Get(music.Id);
             } catch
             {
-                return View();
+                return View(music);
             }
             if (musicToSave == null)
             {
-                return View();
+                return View(music);
             }
             Playlist playlist = _playlistRepo.Get(musicToSave.PlaylistId);
             if (playlist.ApplicationUserId != this.User.GetUserId())
@@ -145,7 +145,7 @@ namespace AudioPlayer.Controllers
             }
             catch
             {
-                return View();
+                return View(musicToSave);
             }
         }
 

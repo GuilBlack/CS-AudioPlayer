@@ -17,17 +17,30 @@
                     {
                         <div id="time" class="text-light"><span id="current-time">0.00</span>/<span id="total-time">0.00</span></div>
                         <div id="waveform"></div>
-                        <div class="center">
-                            <button type="button" id="previous" class="no-style-button">
-                                <span class="material-icons" style="font-size: 40px; color: #0d6efd;">skip_previous</span>
+                        <div class="button-container">
+                            <button type="button" id="toggle-mute" class="no-style-button" style="float: left; margin-right: -40px; padding: 0px;">
+                                <span class="material-icons" id="unmuted" style="font-size: 40px; color: #0d6efd;">volume_up</span>
+                                <span class="material-icons" id="muted" style="font-size: 40px; color: #0d6efd; display: none;">volume_off</span>
                             </button>
-                            <button type="button" id="playPause" class="no-style-button">
-                                <span class="material-icons" id="play" style="font-size: 40px; color: #0d6efd;">play_circle</span>
-                                <span class="material-icons" id="pause" style="font-size: 40px; color: #0d6efd; display: none;">pause_circle</span>
-                            </button>
-                            <button type="button" id="next" class="no-style-button">
-                                <span class="material-icons" style="font-size: 40px; color: #0d6efd;">skip_next</span>
-                            </button>
+                            <div class="center">
+                                <button type="button" id="previous" class="no-style-button">
+                                    <span class="material-icons" style="font-size: 40px; color: #0d6efd;">skip_previous</span>
+                                </button>
+                                <button type="button" id="replay-five" class="no-style-button" onclick="wavesurfer.skip(-5)">
+                                    <span class="material-icons" style="font-size: 40px; color: #0d6efd;">replay_5</span>
+                                </button>
+                                <button type="button" id="playPause" class="no-style-button">
+                                    <span class="material-icons" id="play" style="font-size: 40px; color: #0d6efd;">play_circle</span>
+                                    <span class="material-icons" id="pause" style="font-size: 40px; color: #0d6efd; display: none;">pause_circle</span>
+                                </button>
+                                <button type="button" id="forward-five" class="no-style-button" onclick="wavesurfer.skip(5)">
+                                    <span class="material-icons" style="font-size: 40px; color: #0d6efd;">forward_5</span>
+                                </button>
+                                <button type="button" id="next" class="no-style-button">
+                                    <span class="material-icons" style="font-size: 40px; color: #0d6efd;">skip_next</span>
+                                </button>
+                            </div>
+
                         </div>
                         <table class="table text-light">
                             <thead>
@@ -48,7 +61,7 @@
                             <tbody id="playlist">
                                 @foreach (var item in Model)
                                 {
-                                    <tr id="@item.filePath">
+                                    <tr id="@item.filePath" class="pointer">
                                         <th style="margin: 1px;">
                                             @(i)
                                         </th>

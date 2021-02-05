@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         waveColor: '#428bca',
         progressColor: '#31708f',
         height: 120,
-        barWidth: 3,
+        barWidth: 1,
         responsive: true
     });
 });
@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
     wavesurfer.on('pause', function () {
         document.querySelector('#play').style.display = '';
         document.querySelector('#pause').style.display = 'none';
+    });
+
+    var toggleMute = document.querySelector('#toggle-mute');
+    toggleMute.addEventListener('click', () => {
+        wavesurfer.toggleMute();
+    });
+
+    wavesurfer.on('mute', (m) => {
+        if (m) {
+            document.querySelector('#unmuted').style.display = 'none';
+            document.querySelector('#muted').style.display = '';
+        } else {
+            document.querySelector('#unmuted').style.display = '';
+            document.querySelector('#muted').style.display = 'none';
+        }
     });
 
     var links = document.querySelectorAll('#playlist tr');
@@ -74,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
             var totalTime = wavesurfer.getDuration(),
                 currentTime = wavesurfer.getCurrentTime();
 
-            var curentTimeStr = '' + Math.floor(currentTime / 60) + ':' + Math.round(currentTime % 60);
-            var totalTimeStr = '' + Math.floor(totalTime / 60) + ':' + Math.round(totalTime % 60);
+            var curentTimeStr = '' + Math.floor(currentTime / 60) + ':' + Math.floor(currentTime) % 60;
+            var totalTimeStr = '' + Math.floor(totalTime / 60) + ':' + Math.floor(totalTime) % 60;
 
             document.getElementById('current-time').innerText = curentTimeStr;
             document.getElementById('total-time').innerText = totalTimeStr;

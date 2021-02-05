@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AudioPlayer.Data
 {
-    interface IApplicationDbContext
+    public interface IApplicationDbContext
     {
         public DbSet<Playlist> Playlists { get; set; }
         public DbSet<Music> Musics { get; set; }

@@ -7,16 +7,15 @@ using System.Text;
 
 namespace AudioPlayer.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
         }
 
-        public DbSet<Playlist> Playlists { get; set; }
-        public DbSet<Music> Musics { get; set; }
+        public virtual DbSet<Playlist> Playlists { get; set; }
+        public virtual DbSet<Music> Musics { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
